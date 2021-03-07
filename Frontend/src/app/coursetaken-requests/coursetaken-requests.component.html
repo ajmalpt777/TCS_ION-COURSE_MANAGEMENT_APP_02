@@ -1,0 +1,44 @@
+<div class="container" *ngFor='let item of requestItem1'>
+<div class="row">
+    <div class="col lg-4 md-4" >
+     <table class="table">
+       <tbody>
+         <tr>
+           <th>Name</th>
+           <td>{{ item.s_name.toUpperCase() }}</td>
+         </tr>
+         <tr>
+           <th>Email</th>
+           <td>{{ item.s_email }}</td>
+         </tr>
+         <tr>
+            <th>Education Qualification</th>
+            <td>{{ item.s_education }}</td>
+          </tr>
+       </tbody>
+     </table>
+   </div>
+
+   <!-- <div class="col lg-4 md-4" >
+     <table class="table">
+       <tbody>
+         <tr>
+           <th>Duration</th>
+           <td>{{ course.duration }}</td>
+         </tr>
+         <tr>
+           <th>Details</th>
+           <td>{{ course.details }}</td>
+         </tr>
+       </tbody>
+     </table>
+   </div> -->
+
+   </div>
+   <button mat-raised-button color="primary" (click)="acceptRequest(item)" >Accept</button>
+   <button mat-raised-button color="warn" (click)="declineRequest(item)">Decline</button>
+   <br>
+   <br>
+
+  </div>
+

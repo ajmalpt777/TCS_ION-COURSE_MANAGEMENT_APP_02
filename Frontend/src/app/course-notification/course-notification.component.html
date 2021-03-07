@@ -1,0 +1,10 @@
+
+<div class="container">
+    <mat-icon color="primary" (click)="addNotification()" *ngIf="auth.loggedProfIn()">notification_add</mat-icon>
+
+    <div class="row" *ngFor='let item of notificationItems'>
+        <p>{{item.message}}</p> <p >{{item.time}}</p>
+
+    </div>
+
+</div>

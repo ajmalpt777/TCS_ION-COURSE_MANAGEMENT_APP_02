@@ -1,0 +1,6 @@
+<br>
+<button mat-raised-button color="accent" (click)="getRequest()" *ngIf="auth.loggedProfIn()">Requests</button>
+<br>
+<br>
+<mat-icon color="primary" (click)="createNotification()" *ngIf="auth.loggedProfIn()">campaign</mat-icon>
+<mat-icon color="primary" (click)="createNotification()" *ngIf="auth.loggedUserIn()">notifications</mat-icon>
