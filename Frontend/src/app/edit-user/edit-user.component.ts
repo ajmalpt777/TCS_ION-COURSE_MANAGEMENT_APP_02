@@ -10,7 +10,7 @@ import { UserService } from '../user.service';
 })
 export class EditUserComponent implements OnInit {
 
-  profileItem = new ProfileModel('','','','','','','','','','');
+  profileItem = new ProfileModel('','','','','','','','','','','');
 
   constructor(private userService:UserService,private router:Router) { }
 

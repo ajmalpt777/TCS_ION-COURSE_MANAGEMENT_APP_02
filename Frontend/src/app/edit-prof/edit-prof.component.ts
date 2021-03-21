@@ -11,7 +11,7 @@ import { ProfProfileModel } from '../profile-prof/profprofile.model';
 })
 export class EditProfComponent implements OnInit {
 
-  profItem = new ProfProfileModel('','','','','','','','','','');
+  profItem = new ProfProfileModel('','','','','','','','','','','');
 
   constructor(private profService:ProfService,private router:Router) { }
 

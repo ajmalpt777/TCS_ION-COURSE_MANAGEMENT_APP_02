@@ -56,9 +56,19 @@ export class UserService {
     return this.http.get("http://localhost:3000/courses-enrolled/"+id)
   }
 
+  getRequestedCourses(id){
+
+    return this.http.get("http://localhost:3000/courses-requested/"+id)
+  }
+
   enrollStatus(enroll)
   {
   return this.http.post("http://localhost:3000/enroll-status",enroll);
+  }
+
+  getMessage(id){
+
+    return this.http.get("http://localhost:3000/get-message/"+id)
   }
 
   constructor(private http:HttpClient) { }

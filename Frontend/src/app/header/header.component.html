@@ -1,13 +1,25 @@
-<mat-toolbar color="primary" fxLayout="row">
+<mat-toolbar class="primary" fxLayout="row">
     <mat-toolbar-row class="head">
-    <a mat-list-item  [routerLink]="['/']" ><mat-icon>home</mat-icon> </a>
-    <a mat-list-item  [routerLink]="['/login-user']" *ngIf="! auth.logIn()" routerLinkActive="is-active">Login S </a>
-    <a mat-list-item  [routerLink]="['/signup-user']" *ngIf="! auth.logIn()" routerLinkActive="is-active">SignUp S </a>
-    <a mat-list-item  [routerLink]="['/login-prof']" *ngIf="! auth.logIn()" routerLinkActive="is-active">Login P </a>
-    <a mat-list-item  [routerLink]="['/signup-prof']" *ngIf="! auth.logIn()" routerLinkActive="is-active">SignUp P </a>
-    <a mat-list-item  [routerLink]="['/course-taken']" *ngIf="auth.loggedProfIn()" routerLinkActive="is-active">Courses </a>
-    <a mat-list-item  [routerLink]="['/course-enrolled']" *ngIf="auth.loggedUserIn()" routerLinkActive="is-active">Courses </a>
+    <a mat-list-item  [routerLink]="['/']">Home</a>
+    <a mat-list-item href="#courses" *ngIf="! auth.logIn()">Courses</a>
+    <a mat-list-item href="#chose" *ngIf="! auth.logIn()">Why Us?</a>
+    <a mat-list-item  [routerLink]="['/course-taken']" *ngIf="auth.loggedProfIn()" routerLinkActive="is-active">My Courses </a>
+    <a mat-list-item  [routerLink]="['/course-enrolled']" *ngIf="auth.loggedUserIn()" routerLinkActive="is-active">My Courses </a>
     <a mat-list-item  [routerLink]="['/add-course']" *ngIf="auth.loggedProfIn()" routerLinkActive="is-active">Add Course </a>
-    <a mat-list-item  (click)="logout()" *ngIf="auth.logIn()">Logout </a>
+    <span class="fill-remaining-space2"></span>
+    <i mat-list-item class="fa-2x far fa-envelope message" *ngIf="auth.loggedUserIn()" (click)="getMessage()"></i>
+    <!-- <mat-icon class="icon" color="primary" >circle_notifications</mat-icon> -->
+    <a mat-list-item  [routerLink]="['/login-user']" *ngIf="! auth.logIn()" routerLinkActive="is-active">Student</a>
+    <a mat-list-item  [routerLink]="['/login-prof']" *ngIf="! auth.logIn()" routerLinkActive="is-active">Professor</a>
+    <img mat-list-item class="d-flex mr-3 rounded-circle search" src="assets/images/avatar1.png" height="38px" width="38px" [matMenuTriggerFor]="outMenu" *ngIf="auth.logIn()" />
+    
 </mat-toolbar-row>
 </mat-toolbar>
+
+
+<mat-menu #outMenu="matMenu">
+    <a mat-menu-item  [routerLink]="['/profile-prof']" *ngIf="auth.loggedProfIn()" routerLinkActive="is-active">Profile</a>
+    <a mat-menu-item  [routerLink]="['/profile-user']" *ngIf="auth.loggedUserIn()" routerLinkActive="is-active">Profile</a>
+    <a mat-menu-item  [routerLink]="['/course-requested']" *ngIf="auth.loggedUserIn()" routerLinkActive="is-active">Pending Requests</a>
+    <a mat-menu-item  (click)="logout()" *ngIf="auth.logIn()">Logout </a>
+  </mat-menu>

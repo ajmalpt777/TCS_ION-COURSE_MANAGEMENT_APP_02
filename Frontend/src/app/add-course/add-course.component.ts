@@ -12,10 +12,11 @@ export class AddCourseComponent implements OnInit {
 
   constructor(private profService:ProfService,private router:Router) { }
 
-  courseItem = new CourseModel('','','','','','');
+  courseItem = new CourseModel('','','','','','','','','','');
+
 
   ngOnInit(): void {
-    
+  this.courseItem.email = localStorage.getItem("profId");
   }
 
   AddCourse(){

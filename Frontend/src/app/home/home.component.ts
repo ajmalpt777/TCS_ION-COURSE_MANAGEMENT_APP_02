@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { CourseModel } from '../add-course/course.model';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   courses:CourseModel[];
 
-  constructor(private userService:UserService,private router:Router) { }
+  constructor(private userService:UserService,private router:Router,public auth:AuthService) { }
 
   ngOnInit(): void {
     
@@ -27,5 +28,6 @@ export class HomeComponent implements OnInit {
     localStorage.setItem("detailsCourseId",course._id.toString());
       this.router.navigate(['details-course']); 
   }
+
 
 }

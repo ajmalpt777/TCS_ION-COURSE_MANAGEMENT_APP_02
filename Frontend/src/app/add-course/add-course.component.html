@@ -42,15 +42,36 @@
 
                         <div class="form-group">
                             <label >Email</label>
-                            <input type="text" name="c_email" [(ngModel)]="courseItem.email" #cemail='ngModel' placeholder="Type Registered Email" class="form-control"  required>
-                            <small class="text-danger" [class.d-none]="cemail.valid || cemail.touched">Empty Value Not Supported</small>    
+                            <input type="text" name="c_email"  class="form-control" [(ngModel)]="courseItem.email" #cemail='ngModel' readonly  required>
+                            <!-- <small class="text-danger" [class.d-none]="cemail.valid || cemail.touched">Empty Value Not Supported</small>     -->
           
+                          </div>
+
+                          <div class="form-group">
+                            <label >Course Type</label>
+                            <input type="text" name="c_type" [(ngModel)]="courseItem.type" #ctype='ngModel' placeholder="Type Type Of course" class="form-control" >
+                          </div>
+
+                          <div class="form-group">
+                            <label >Course Level</label>
+                            <input type="text" name="c_level" [(ngModel)]="courseItem.level" #clevel='ngModel' placeholder="Type Level Of course" class="form-control" >
+                          </div>
+
+                          <div class="form-group">
+                            <label >Start Date</label>
+                            <input type="text" name="c_sdate" [(ngModel)]="courseItem.startdate" #csdate='ngModel' placeholder="Type Start Date Of course" class="form-control" >
                           </div>
 
                         <div class="form-group">
                             <label >Duration</label>
                             <input type="text" name="c_dur" [(ngModel)]="courseItem.duration" #cdur='ngModel' placeholder="Type Duration" class="form-control"  required>
                             <small class="text-danger" [class.d-none]="cdur.valid || cdur.touched">Empty Value Not Supported</small>    
+          
+                          </div>
+
+                          <div class="form-group">
+                            <label >Eligibility</label>
+                            <input type="text" name="c_qualification" [(ngModel)]="courseItem.qualification" #cql='ngModel' placeholder="Type Required Qulaification" class="form-control" >
           
                           </div>
 

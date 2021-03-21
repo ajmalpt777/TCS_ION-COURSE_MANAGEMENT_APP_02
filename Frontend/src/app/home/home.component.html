@@ -1,27 +1,86 @@
+        <section id="banner" *ngIf="! auth.logIn()">
+          <div class="container-fluid">
 
-      <div class="container">
-        <div class="row" >    
-            <div class="col-lg-4 col-sm-7 col-md-6 my-row" *ngFor='let course of courses'>
-             <div class="image">
-             <img src="{{course.image}}" alt="" height="200px" width="300px" (click)="detailsCourse(course)">
-            
-          </div>
+            <div class="row">
+              <div class="col-md-6">
+                <p class="promo-title">SKILL PLUS</p>
+                <p>
+                  We are providing your course to success.Build skills with courses, certificates online.Take the next step toward your personal and professional goals with SkillPlus.Earn industry-recognized credentials.Master skills with in-depth learning and understanding with proper mentoring.</p>
+                 <br>
+                <div class="header-buttons">
+                   <a href="/login-user">Student</a>
+                   <a href="/login-prof">Professor</a>
+                 </div>
+              </div>
 
-
-                <div class="video-bottom-section">
-                  <div class="video-details">
-                    <p  class="video-title">{{course.name}}</p>
-              
-
-                       <!-- <mat-icon svgIcon="edit" (click)="editTrailer(trailer)" *ngIf="auth.loggedIn()" color="primary"></mat-icon>
-                       <mat-icon svgIcon="delete" (click)="deleteTrailer(trailer)" *ngIf="auth.loggedIn()" color="warn"></mat-icon>  -->
-                    </div>
-                  </div>
-                
-
+              <div class="col-md-6 text-center">
+               <img src="assets/png/1.png.svg" class="img-fluid" fxHide.xs>
               </div>
             </div>
-          </div>
 
+          </div>
+         </section>
+         <img src="assets/png/wave5.png" class="bottom-img" *ngIf="! auth.logIn()">
+
+<section id="courses">
+  <div class="container">
+    <div class="text-center" *ngIf="! auth.logIn()">
+          <h1 class="title">COURSES OFFERED</h1>
+        </div>
+
+      <div class="row" >    
+          <div class="col-lg-4 col-sm-7 col-md-6 my-row" *ngFor='let course of courses'> 
+
+          <!-- <div class="image">
+             <img src="{{course.image}}" alt="" height="200px" width="300px" (click)="detailsCourse(course)">
+             <div class="video-bottom-section">
+              <div class="video-details">
+                <h2  class="video-title">{{course.name}}</h2>
+              </div>
+            </div>
+          </div> -->
+
+          <mat-card class="example-card">
+            <img src="{{course.image}}" alt="" height="100%" width="100%" (click)="detailsCourse(course)">
+              <mat-card-content>
+                <h2 class="text-center">{{course.name}}</h2>
+              </mat-card-content>
+          </mat-card>
+        
+        </div>
+      </div>
+     
+  </div>
+</section>
+
+  <section class="section3" *ngIf="! auth.logIn()" id="chose">
+    <div class="container">
+      <div class="text-center">
+        <h1 class="title">WHY US?</h1>
+      </div>
+      <div class="row">
+
+        <div class="col-lg-4 col-md-4 col-12 section3con">
+          <i class="fa-3x fas fa-desktop"></i>
+          <h2>ONLINE FREE COURSES</h2>
+          <p>We are providing number of courses free of charge for registered students.Which will help you to enrich your skills in an efficient way.</p> 
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-12 section3con">
+          <i class="fa-3x fas fa-graduation-cap"></i>
+          <h2>CERTIFICATE</h2>
+          <p>Providing certificates after the completion of courses with the monitoring of teachers.Which are definitly going to strengthen your resume.</p> 
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-12 section3con">
+          <i class="fa-3x fas fa-coins"></i>
+          <h2>Affordable Fee Structure</h2>
+          <p>We are providing the best courses with affordable fee structure.One-stop shop for Students, Unemployed and Working professionals.</p> 
+        </div>
+
+      </div>
+    </div>
+  </section>
+          <img src="assets/png/wave6.png" class="footer-img" *ngIf="!auth.logIn()">
 
 

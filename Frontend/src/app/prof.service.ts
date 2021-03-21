@@ -45,8 +45,8 @@ export class ProfService {
     return this.http.post("http://localhost:3000/get-request",item);
   }
 
-  acceptRequest(id){
-    return this.http.get("http://localhost:3000/accept-request/"+id);
+  acceptRequest(item){
+    return this.http.post<any>("http://localhost:3000/accept-request/",item);
   }
 
   declineRequest(id){
@@ -60,6 +60,27 @@ export class ProfService {
 
   getNotification(id){
     return this.http.get("http://localhost:3000/get-notification/"+id)
+  }
+
+  getCourseDetails(id){
+    return this.http.get("http://localhost:3000/course-details-prof/"+id);
+  }
+
+  editCourse(course){
+    return this.http.put("http://localhost:3000/edit-course",course)
+    .subscribe(data=>{
+      console.log(data)
+    })
+
+  }
+
+  sendMessage(item){
+    return this.http.post("http://localhost:3000/send-message",item)
+    .subscribe(data=> { console.log(data)} )
+  }
+
+  enrollNumber(id){
+    return this.http.get("http://localhost:3000/enroll-number/"+id)
   }
 
   constructor(private http:HttpClient) { }

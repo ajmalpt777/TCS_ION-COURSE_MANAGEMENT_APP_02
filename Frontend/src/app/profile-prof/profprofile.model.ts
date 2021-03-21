@@ -10,5 +10,6 @@ export class ProfProfileModel{
     public languages:string,
     public hobbies:string,
     public education:string,
+    public number:string
     ){}
 }

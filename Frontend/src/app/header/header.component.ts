@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+import { MessageNotificationComponent } from '../message-notification/message-notification.component';
+
 
 @Component({
   selector: 'app-header',
@@ -9,7 +12,7 @@ import { AuthService } from '../auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public auth:AuthService,private router:Router) { }
+  constructor(public auth:AuthService,private router:Router,private dialog:MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -23,5 +26,14 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem('editProfileId')
     this.router.navigate(['/'])  
   }
+
+  getMessage(){
+    const dialogRef = this.dialog.open(MessageNotificationComponent, {
+      height: '450px',
+      width:'500px'
+    });
+  }
+
+  
 
 }

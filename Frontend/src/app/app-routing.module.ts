@@ -7,6 +7,7 @@ import { CourseTakenComponent } from './course-taken/course-taken.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CoursetakenDetailsComponent } from './coursetaken-details/coursetaken-details.component';
 import { CoursetakenRequestsComponent } from './coursetaken-requests/coursetaken-requests.component';
+import { EditCourseComponent } from './edit-course/edit-course.component';
 import { EditProfComponent } from './edit-prof/edit-prof.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { HomeComponent } from './home/home.component';
@@ -14,6 +15,7 @@ import { LoginProfComponent } from './login-prof/login-prof.component';
 import { LoginUserComponent } from './login-user/login-user.component';
 import { ProfileProfComponent } from './profile-prof/profile-prof.component';
 import { ProfileUserComponent } from './profile-user/profile-user.component';
+import { RequestedCoursesComponent } from './requested-courses/requested-courses.component';
 import { SignupProfComponent } from './signup-prof/signup-prof.component';
 import { SignupUserComponent } from './signup-user/signup-user.component';
 
@@ -27,6 +29,7 @@ const routes: Routes = [
                        {path:'profile-user',component:ProfileUserComponent},
                        {path:'edit-user',component:EditUserComponent},
                        {path:'edit-prof',component:EditProfComponent},
+                       {path:'edit-course',component:EditCourseComponent},
                        {path:'add-course',component:AddCourseComponent},
                        {path:'course-taken',component:CourseTakenComponent},
                        {path:'course-enrolled',component:CoursesComponent},
@@ -34,6 +37,7 @@ const routes: Routes = [
                        {path:'details-coursetaken',component:CoursetakenDetailsComponent},
                        {path:'request-coursetaken',component:CoursetakenRequestsComponent},
                        {path:'course-notification',component:CourseNotificationComponent},
+                       {path:'course-requested',component:RequestedCoursesComponent},
 
 ];
 

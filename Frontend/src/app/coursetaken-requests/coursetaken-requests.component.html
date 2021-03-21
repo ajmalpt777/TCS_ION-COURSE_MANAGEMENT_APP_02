@@ -1,5 +1,8 @@
-<div class="container" *ngFor='let item of requestItem1'>
-<div class="row">
+<!-- <div class="container" >
+  <p *ngIf="requestItem1.length == 0">NO ITEM TO SHOW</p>
+
+<div class="row" *ngFor='let item of requestItem1'>
+
     <div class="col lg-4 md-4" >
      <table class="table">
        <tbody>
@@ -19,26 +22,69 @@
      </table>
    </div>
 
-   <!-- <div class="col lg-4 md-4" >
-     <table class="table">
-       <tbody>
-         <tr>
-           <th>Duration</th>
-           <td>{{ course.duration }}</td>
-         </tr>
-         <tr>
-           <th>Details</th>
-           <td>{{ course.details }}</td>
-         </tr>
-       </tbody>
-     </table>
-   </div> -->
-
    </div>
+
+   <div class="row" *ngFor='let item of requestItem1'>
+    <div class="col lg-4 md-4" >
    <button mat-raised-button color="primary" (click)="acceptRequest(item)" >Accept</button>
    <button mat-raised-button color="warn" (click)="declineRequest(item)">Decline</button>
    <br>
    <br>
-
+   </div>
   </div>
+
+  </div> -->
+
+
+
+
+  <h2 mat-dialog-title>Requests</h2>
+<mat-dialog-content>
+
+    <div class="container">
+
+      <p *ngIf="requestItem1.length == 0">NO ITEM TO SHOW</p>
+
+      <div class="rows" *ngFor='let item of requestItem1'>
+
+<div class="row" >
+
+    <div class="col lg-4 md-4" >
+     <table class="table">
+       <tbody>
+         <tr>
+           <th>Name</th>
+           <td>{{ item.s_name.toUpperCase() }}</td>
+         </tr>
+         <tr>
+           <th>Email</th>
+           <td>{{ item.s_email }}</td>
+         </tr>
+         <tr>
+            <th>Education Qualification</th>
+            <td>{{ item.s_education }}</td>
+          </tr>
+       </tbody>
+     </table>
+   </div>
+
+   </div>
+
+   <div class="row" >
+    <div class="col lg-4 md-4" >
+   <button mat-raised-button color="primary" (click)="acceptRequest(item)" ><i class="fa-2x far fa-check-circle"></i></button>
+   <button mat-raised-button color="warn" (click)="declineRequest(item)"><i class="fa-2x far fa-times-circle"></i></button>
+   <button mat-raised-button color="accent" (click)="sendMessage(item)">    <i class="fa-2x far fa-envelope message"></i>   </button>
+   <br>
+   <br>
+   </div>
+  </div>
+
+</div>
+</div>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close tabindex="-1">Cancel</button>
+  </mat-dialog-actions>
 

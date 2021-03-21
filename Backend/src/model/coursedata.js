@@ -10,6 +10,10 @@ const CourseSchema = new Schema({
     professor:String,
     email:String,
     details:String,
+    qualification:String,
+    type:String,
+    startdate:String,
+    level:String
     
 });
 

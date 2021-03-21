@@ -14,7 +14,8 @@ const UserSchema = new Schema({
     hobbies:String,
     mothertongue:String,
     languages:String,
-    education:String
+    education:String,
+    number:String
 });
 
 var Userdata = mongoose.model('userdata',UserSchema);

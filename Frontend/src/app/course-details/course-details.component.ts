@@ -86,23 +86,8 @@ export class CourseDetailsComponent implements OnInit {
       this.enrollItem1 = JSON.parse(JSON.stringify(data));
       this.router.navigate(['/details-course'])
       console.log(this.enrollItem1)
-      // this.router.navigateByUrl('http://localhost:4200/details-course');
-  
-      // this.enrollItem.c_name=this.courseItem[0].name;
-      // this.enrollItem.p_email=this.courseItem[0].email;
-      // this.enrollItem.s_name=this.profileItem[0].name;
-      // this.enrollItem.s_email=this.profileItem[0].email;
-    
-      // this.userService.enrollStatus(this.enrollItem)
-      // .subscribe((data)=>
-      // {
-      //   this.enrollItem = JSON.parse(JSON.stringify(data));
-      //   this.enrollRequest=this.enrollItem[0].status;
-      //   console.log("2nd time called")
-        
-      // }) 
-
     })
+    window.location.reload();
   }
 
   cancel(course){

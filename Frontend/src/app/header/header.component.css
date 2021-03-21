@@ -2,12 +2,43 @@
     display:flex;
     padding: 10px 10px;
 }
+
+.primary{
+  background: linear-gradient(to right, #4b79a1, #283e51);
+  position: sticky;
+  /* position: fixed; */
+z-index: 10;
+top: 0;
+}
+
+.head{
+position: sticky;
+z-index: 10;
+top: 0;
+}
+
 .mat-toolbar-row a {
     color: white;
     text-decoration: none;
 }
 
+
 [mat-menu-item].is-active,
   [mat-list-item].is-active {
     background: hsla(0, 0%, 100%, 0.1);
   }
+
+  .fill-remaining-space2 {
+    flex: 1 1 auto;
+}
+
+.message{
+  color: #aac9e3;
+  margin-right: 2%;
+}
+
+.mat-toolbar-row a:hover{
+  color:#283e51;
+  background:#fff;
+  
+}

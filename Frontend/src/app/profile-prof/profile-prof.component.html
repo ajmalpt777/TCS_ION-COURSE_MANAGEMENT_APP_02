@@ -1,4 +1,4 @@
-<div class="container" *ngFor='let profile of profItem'>
+<!-- <div class="container" *ngFor='let profile of profItem'>
     <div class="row" >
         <mat-icon color="warn" (click)="editProfile(profile)">edit</mat-icon>
     </div>
@@ -50,4 +50,77 @@
    </div>
 
    </div>
-</div>
+</div> -->
+
+
+<html>
+<body class="bg-light">
+	<div class="container" *ngFor='let profile of profItem'>
+
+     	<div class="row d-flex justify-content-center">
+            <div class="col-md-10 mt-5 pt-5">
+             	
+              <div class="row z-depth-3">
+                 	
+                <div class="col-sm-4 info rounded-left">
+        		        <div class="card-block text-center text-white">
+                		    <i class="fas fa-user-tie fa-7x mt-5"></i>
+                    		<h2 class="font-weight-bold mt-4">{{ profile.name.toUpperCase() }}</h2>
+                    		<p>{{ profile.dob }}</p> 
+                        <i class="fa-2x far fa-edit edit" (click)="editProfile(profile)"></i>
+                		</div>
+            		</div>
+            		
+                <div class="col-sm-8 bg-white rounded-right">
+                    	<h3 class="mt-3 text-center">Information</h3>
+                    	<hr class="bg-primary mt-0 w-25">
+                   		<div class="row">
+                        	<div class="col-sm-6">
+                            	<p class="font-weight-bold">Email:</p>
+                           		<h6 class=" text-muted">{{ profile.email }}</h6>
+                        	</div>
+                        	<div class="col-sm-6">
+                            	<p class="font-weight-bold">Phone:</p>
+                           		<h6 class="text-muted">{{ profile.number }}</h6>
+                        	</div>
+                    	</div>
+                       
+                      <hr class="ruler">
+                   		<div class="row">
+                        	<div class="col-sm-6">
+                           		<p class="font-weight-bold">Highest Graduation:</p>
+                          	  	<h6 class="text-muted">{{profile.education}}</h6>
+                        	</div>
+                        	<div class="col-sm-6">
+                            	<p class="font-weight-bold">Experience:</p>
+                            	<h6 class="text-muted">{{profile.hobbies}}</h6>
+                        	</div>
+                    	</div>
+
+                    		<hr class="ruler">
+                   		<div class="row">
+                        	<div class="col-sm-6">
+                           		<p class="font-weight-bold">Mother Tongue:</p>
+                          	  	<h6 class="text-muted">{{profile.mothertongue}}</h6>
+                        	</div>
+                        	<div class="col-sm-6">
+                            	<p class="font-weight-bold">Other Languages:</p>
+                            	<h6 class="text-muted">{{profile.languages}}</h6>
+                        	</div>
+                    	</div>
+                      <p class="mt-3 font-weight-bold">Address:</p>
+                	   	<hr class="ruler">
+                	    <ul class="d-flex justify-content-center mt-4">
+            	        	<h6 class="text-muted">{{profile.address}}</h6>
+	               		</ul>  
+              		</div>
+             	</div>
+            </div>
+        </div>
+	</div>
+</body>
+</html>
+
+
+
+

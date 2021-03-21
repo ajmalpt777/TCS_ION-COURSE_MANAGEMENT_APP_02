@@ -34,6 +34,12 @@
                         </div>
 
                         <div class="form-group">
+                          <label >Phone Number</label>
+                          <input type="string" name="p_number" [(ngModel)]="profileItem.number" #pnumber='ngModel' placeholder="Type Number" class="form-control" >
+        
+                        </div>
+
+                        <div class="form-group">
                           <label >Address</label>
                           <input type="text" name="p_adds" [(ngModel)]="profileItem.address" #padds='ngModel' placeholder="Type Address" class="form-control" >
         
@@ -54,19 +60,19 @@
 
                           <div class="form-group">
                             <label >Other Languages</label>
-                            <input type="text" name="p_lang" [(ngModel)]="profileItem.languages" #plang='ngModel' placeholder="Type Actors" class="form-control" >   
+                            <input type="text" name="p_lang" [(ngModel)]="profileItem.languages" #plang='ngModel' class="form-control" >   
           
                           </div>
 
                           <div class="form-group">
                             <label >Hobbies</label>
-                            <input type="text" name="p_hb" [(ngModel)]="profileItem.hobbies" #thb='ngModel' placeholder="Type Release Date Of Trailer" class="form-control">
+                            <input type="text" name="p_hb" [(ngModel)]="profileItem.hobbies" #thb='ngModel'  class="form-control">
           
                           </div>
 
                           <div class="form-group">
                             <label >Education</label>
-                            <input type="text" name="p_edc" [(ngModel)]="profileItem.education" #tedc='ngModel' placeholder="Type Release Date Of Trailer" class="form-control" >   
+                            <input type="text" name="p_edc" [(ngModel)]="profileItem.education" #tedc='ngModel'  class="form-control" >   
           
                           </div>
 

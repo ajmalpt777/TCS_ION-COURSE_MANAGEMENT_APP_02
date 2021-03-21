@@ -2,5 +2,40 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/solid.min.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/regular.min.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css);
+
+
+html,body{
+    height: 100%;
+}
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.header{
+    color: white;
+    background-color:#199ec1;
+}
+
+.header a{
+    color: white;
+    text-decoration: none;
+}
+
+.container{
+    min-height: 100%;
+  }
+  .container-fluid{
+    min-height: 100%;
+  }
+
+  mat-icon{
+    cursor: pointer;
+  }
+

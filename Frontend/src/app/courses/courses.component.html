@@ -1,22 +1,17 @@
 
       <div class="container">
+        <mat-card class="text-center nocard" *ngIf="courses.length == 0">Not Enrollled To Any courses</mat-card>
         <div class="row" >    
             <div class="col-lg-4 col-sm-7 col-md-6 my-row" *ngFor='let course of courses'>
-             <div class="image">
-             <img src="{{course.image}}" alt="" height="200px" width="300px" (click)="detailsCoursetaken(course)">
-            
-          </div>
 
+              <mat-card class="example-card">
+            <img src="{{course.image}}" alt="" height="100%" width="100%" (click)="detailsCoursetaken(course)">
+              <mat-card-content>
+                <h2 class="text-center">{{course.name}}</h2>
+              </mat-card-content>
+          </mat-card>
 
-                <div class="video-bottom-section">
-                  <div class="video-details">
-                    <p  class="video-title">{{course.name}}</p>
-              
-
-                       <!-- <mat-icon svgIcon="edit" (click)="editTrailer(trailer)" *ngIf="auth.loggedIn()" color="primary"></mat-icon>
-                       <mat-icon svgIcon="delete" (click)="deleteTrailer(trailer)" *ngIf="auth.loggedIn()" color="warn"></mat-icon>  -->
-                    </div>
-                  </div>
+           
                 
 
               </div>

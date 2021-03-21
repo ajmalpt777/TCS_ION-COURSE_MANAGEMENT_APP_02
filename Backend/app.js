@@ -4,6 +4,7 @@ const ProfData = require('./src/model/profdata');
 const CourseData = require('./src/model/coursedata');
 const EnrollData = require('./src/model/enrollrequest');
 const NotificationData = require('./src/model/notificationdata');
+const MessageData = require('./src/model/messagedata');
 
 
 const cors = require('cors');
@@ -79,8 +80,10 @@ app.post('/login-user', (req, res) => {
         res.header("Acess-Control-Allow-Origin","*");
         res.header('Acess-Control-Allow-Methods : GET,POST,PUT,DELETE');
         console.log(req.body);
+        let code=12345678
         let userData = req.body
         console.log(userData.email1);
+        console.log(userData.code);
         console.log(ProfData.exists({email: userData.email1}));
         ProfData.exists({email: userData.email1})
         .then(function(docs){
@@ -89,6 +92,13 @@ app.post('/login-user', (req, res) => {
                 msg2="exist";
                 res.status(200).send({msg2}); 
                 console.log("exist");
+            }
+            else if(code != userData.code){
+
+                msg2="exist";
+                res.status(200).send({msg2}); 
+                console.log("exist");
+
             }
             else{
                 
@@ -154,7 +164,8 @@ app.post('/login-user', (req, res) => {
              mothertongue= req.body.mothertongue,
              languages= req.body.languages,
              hobbies= req.body.hobbies,
-             education= req.body.education
+             education= req.body.education,
+             number=req.body.number
        UserData.findByIdAndUpdate({"_id":id},
                                     {$set:{
                                     "name":tname,
@@ -164,7 +175,39 @@ app.post('/login-user', (req, res) => {
                             "mothertongue":mothertongue,
                         "hobbies":hobbies,
                         "education":education,
-                        "languages":languages
+                        "languages":languages,
+                        "number":number
+                    }})
+       .then(function(){
+           res.send();
+       })
+     })
+
+     app.put('/edit-course',(req,res)=>{
+        console.log(req.body)
+        id=req.body._id,
+             tname= req.body.name,
+             duration= req.body.duration,
+             image= req.body.image,
+             professor= req.body.professor,
+             email= req.body.email,
+             details= req.body.details,
+             qualification= req.body.qualification,
+             type= req.body.type,
+             startdate= req.body.startdate,
+             level= req.body.level
+       CourseData.findByIdAndUpdate({"_id":id},
+                                    {$set:{
+                                    "name":tname,
+                            "duration":duration,
+                            "image":image,
+                            "professor":professor,
+                            "email":email,
+                        "details":details,
+                        "qualification":qualification,
+                        "type":type,
+                        "startdate":startdate,
+                        "level":level
                     }})
        .then(function(){
            res.send();
@@ -201,7 +244,8 @@ app.put('/edit-prof',(req,res)=>{
          mothertongue= req.body.mothertongue,
          languages= req.body.languages,
          hobbies= req.body.hobbies,
-         education= req.body.education
+         education= req.body.education,
+         number=req.body.number
    ProfData.findByIdAndUpdate({"_id":id},
                                 {$set:{
                                 "name":tname,
@@ -211,7 +255,8 @@ app.put('/edit-prof',(req,res)=>{
                         "mothertongue":mothertongue,
                     "hobbies":hobbies,
                     "education":education,
-                    "languages":languages
+                    "languages":languages,
+                    "number":number
                 }})
    .then(function(){
        res.send();
@@ -229,7 +274,11 @@ app.put('/edit-prof',(req,res)=>{
          professor: req.body.professor,
          email: req.body.email,
          details: req.body.details,
+         qualification: req.body.qualification,
          duration: req.body.duration,
+         type: req.body.type,
+         startdate:req.body.startdate,
+         level:req.body.level
          
     }
     var course=new CourseData(course);
@@ -271,6 +320,33 @@ app.get('/courses-enrolled/:id', function(req,res){
     
 });
 
+app.get('/courses-requested/:id', function(req,res){
+    res.header("Acess-Control-Allow-Origin","*");
+    res.header('Acess-Control-Allow-Methods : GET,POST,PUT,DELETE');
+    id = req.params.id;
+    status="requested";
+    var array=[];
+    console.log(id);
+    EnrollData.find({"s_email":id,"status":status},'c_id').then ( function(courses){
+    
+        console.log(courses)
+        courses.forEach(
+            function getData(currentValue, index){
+        
+            CourseData.findOne({"_id":{$in : [currentValue.c_id]}}).then ( function(course){
+            
+                array.push(course);
+            })
+            
+        });
+
+        setTimeout(function(){ res.send(array); console.log(array)}, 1500);
+        
+        
+    }  );
+    
+});
+
 
 
 
@@ -287,6 +363,15 @@ app.get('/course-details/:id',(req,res)=>{
     const id=req.params.id;
     console.log(id);
     CourseData.find({"_id":id})
+    .then((course)=>{
+        res.send(course);
+    })
+})
+
+app.get('/course-details-prof/:id',(req,res)=>{
+    const id=req.params.id;
+    console.log(id);
+    CourseData.findOne({"_id":id})
     .then((course)=>{
         res.send(course);
     })
@@ -337,21 +422,56 @@ app.post('/get-request',(req,res)=>{
     })
 })
 
-app.get('/accept-request/:id',function(req,res){
+app.post('/accept-request',function(req,res){
     res.header("Acess-Control-Allow-Origin","*");
     res.header('Acess-Control-Allow-Methods : GET,POST,PUT,DELETE');
     console.log("app");
-    id=req.params.id;
-    console.log(id);
-   EnrollData.findByIdAndUpdate({"_id":id},
+    body=req.body
+    console.log(body);
+    c_id=req.body.c_id;
+    id=req.body._id;
+   EnrollData.find({"c_id":c_id,"status":"accepted"}).then(function(data){
+      if(data.length <= 40){
+
+        EnrollData.findByIdAndUpdate({"_id":id},
                                 {$set:{
                                 "status":"accept",
                 }})
    .then(function(data){
-       res.send(data);
+    lessthan="Lessthan";
+    res.status(200).send({lessthan});
    })
 
+      }
+
+      else{
+        greater="greater";
+        res.status(200).send({greater});
+
+      }
+
+   })
+
+//    EnrollData.findByIdAndUpdate({"_id":id},
+//                                 {$set:{
+//                                 "status":"accept",
+//                 }})
+//    .then(function(data){
+//        res.send(data);
+//    })
+
 });
+
+app.get('/enroll-number/:id',(req,res)=>{
+    console.log("number")
+    const id=req.params.id;
+    status="accept";
+    console.log(id);
+    EnrollData.find({"c_id":id,"status":status})
+    .then((course)=>{
+        res.send(course);
+    })
+})
 
 app.delete('/decline-request/:id',(req,res)=>{
    
@@ -392,6 +512,34 @@ app.get('/get-notification/:id', function(req,res){
     
     NotificationData.find({"c_id":id}).sort({$natural: -1}).then (function(notifications){
         res.send(notifications);
+    });
+});
+
+app.post('/send-message',function(req,res){
+    res.header("Acess-Control-Allow-Origin","*");
+    res.header('Acess-Control-Allow-Methods : GET,POST,PUT,DELETE');
+
+    console.log(req.body);
+    var message={
+         r_id: req.body.r_id,
+         s_id: req.body.s_id,
+         s_name: req.body.s_name,
+         message: req.body.message,
+         about: req.body.about     
+    }
+    var message=new MessageData(message);
+    message.save();
+});
+
+app.get('/get-message/:id', function(req,res){
+    res.header("Acess-Control-Allow-Origin","*");
+    res.header('Acess-Control-Allow-Methods : GET,POST,PUT,DELETE');
+
+    id=req.params.id;
+    console.log(id);
+    
+    MessageData.find({"r_id":id}).sort({$natural: -1}).then (function(message){
+        res.send(message);
     });
 });
 

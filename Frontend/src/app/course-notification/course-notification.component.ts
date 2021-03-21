@@ -24,25 +24,7 @@ export class CourseNotificationComponent implements OnInit {
     })
   }
 
-  addNotification()
-  {
-    let foo = prompt('Type Message');
-    console.log(foo);
-    if(foo?.trim()!=='')
-    {
-    let c_Id = localStorage.getItem("detailsCourseId");
-    this.notificationItem.c_id=c_Id;
-    this.notificationItem.message=foo;
-    this.profService.addNotification(this.notificationItem);
-    
-    this.profService.getNotification(c_Id)
-    .subscribe((data)=>{
-      this.notificationItems=JSON.parse(JSON.stringify(data));
-      console.log(this.notificationItems);
-    })
 
-  }
-}
 
 
 }

@@ -1,7 +1,4 @@
-<div class="container" *ngFor='let course of courseItem'>
-    <div class="row" >
-        <mat-icon color="warn" >edit</mat-icon>
-    </div>
+<!-- <div class="container" *ngFor='let course of courseItem'>
 <div class="row">
     <div class="col lg-4 md-4" >
      <table class="table">
@@ -14,6 +11,14 @@
            <th>Professor</th>
            <td>{{ course.professor }}</td>
          </tr>
+         <tr>
+          <th>Type</th>
+          <td>{{ course.type }}</td>
+        </tr>
+        <tr>
+          <th>Level</th>
+          <td>{{ course.level }}</td>
+        </tr>
        </tbody>
      </table>
    </div>
@@ -26,9 +31,14 @@
            <td>{{ course.duration }}</td>
          </tr>
          <tr>
+          <th>Start Date</th>
+          <td>{{ course.startdate }}</td>
+        </tr>
+         <tr>
            <th>Details</th>
            <td>{{ course.details }}</td>
          </tr>
+        
        </tbody>
      </table>
    </div>
@@ -37,5 +47,72 @@
    <button mat-raised-button disabled  *ngIf="auth.loggedUserIn() && enrollRequest== 'accept' " >Enrolled</button>
    <button mat-raised-button color="primary" *ngIf="auth.loggedUserIn() && enrollRequest != 'requested' && enrollRequest != 'accept' " (click)="enroll(course)">Enroll</button>
    <button mat-raised-button color="warn" *ngIf="auth.loggedUserIn() && enrollRequest== 'requested' " (click)="cancel(course)">Requested</button>
+
+  </div> -->
+
+  <div class="container-fluid" *ngFor='let course of courseItem'>
+   <div class="row">
+     <div class="col-12 name">
+       <h2> {{ course.name.toUpperCase() }} </h2>
+     </div>
+   </div>
+
+   <div class="row">
+     <div class="col-8">
+       <h3>About</h3>
+       <p> {{ course.details }} </p>
+     </div>
+   </div>
+
+   <div class="row">
+    <div class="col-8">
+      <h3>Eligibility</h3>
+      <p> {{course.qualification}} </p>
+    </div>
+    <div class="col-4">
+      <h3>Course Level</h3>
+      <p> {{ course.level }} </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-8">
+      <h3>Start Date</h3>
+      <p> {{ course.startdate }} </p>
+    </div>
+    <div class="col-4">
+      <h3>Course Type</h3>
+      <p> {{ course.type }} </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-8">
+      <h3>Course Duration</h3>
+      <p> {{ course.duration }} </p>
+    </div>
+    <div class="col-4">
+      <h3>Professor</h3>
+      <p> {{ course.professor }} </p>
+    </div>
+  </div>
+  <br>
+  <div class="row" *ngIf="!auth.logIn()">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <div class="register">
+        <a href="/login-user">SignIn For Register</a> </div>
+    </div>
+    <div class="col-3"></div>
+  </div>
+
+  <div class="row" *ngIf="auth.loggedUserIn()">
+    <div class="col-3">
+      <button mat-raised-button disabled  *ngIf="auth.loggedUserIn() && enrollRequest== 'accept' " >Enrolled-Visit Your Courses</button>
+      <button mat-raised-button color="primary" *ngIf="auth.loggedUserIn() && enrollRequest != 'requested' && enrollRequest != 'accept' " (click)="enroll(course)">Enroll</button>
+      <button mat-raised-button color="warn" *ngIf="auth.loggedUserIn() && enrollRequest== 'requested' " (click)="cancel(course)">Requested</button>
+    </div>
+  </div>
+  
 
   </div>

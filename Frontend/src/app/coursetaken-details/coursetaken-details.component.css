@@ -1,0 +1,50 @@
+.notification{
+    /* float: right;
+    display: flex; */
+    margin-top: 15px;
+    margin-left: 90%;
+    font-size: 35px;
+    color: #072a63;
+}
+
+i{
+    float: right;
+}
+mat-card{
+    margin-top: 15px;
+}
+
+.request{
+    margin-top: 10px;
+    background: #4b79a1;
+    color: white;
+
+}
+
+.add{
+    margin-top: 10px;
+    margin-left: 80%;
+    float: right;
+    padding-right: 60px;
+    font-size: 35px;
+    color: #072a63;
+
+}
+
+.campaign{
+    /* margin-top: 10px;
+    margin-right: 90%;
+    float: right; */
+    font-size: 35px;
+    margin-top: 10px;
+    color: #072a63;
+
+}
+
+.editicon{
+    color: #072a63;
+
+}
+
+
+

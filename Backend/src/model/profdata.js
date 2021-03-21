@@ -14,7 +14,8 @@ const ProfSchema = new Schema({
     hobbies:String,
     mothertongue:String,
     languages:String,
-    education:String
+    education:String,
+    number:String
     
 
 });

@@ -1,6 +1,67 @@
-<br>
-<button mat-raised-button color="accent" (click)="getRequest()" *ngIf="auth.loggedProfIn()">Requests</button>
-<br>
-<br>
-<mat-icon color="primary" (click)="createNotification()" *ngIf="auth.loggedProfIn()">campaign</mat-icon>
-<mat-icon color="primary" (click)="createNotification()" *ngIf="auth.loggedUserIn()">notifications</mat-icon>
+
+
+<div class="container" *ngFor='let course of courseItem'>
+    <div class="row">
+        <br>
+        <button class="request" mat-raised-button (click)="getRequest()" *ngIf="auth.loggedProfIn()">Requests</button>
+        <br>
+        <br>
+        <mat-icon class="add" (click)="addNotification()" *ngIf="auth.loggedProfIn()">notification_add</mat-icon>
+        <mat-icon class="campaign" (click)="createNotification()" *ngIf="auth.loggedProfIn()">campaign</mat-icon>
+        <mat-icon class="notification"  (click)="createNotification()" *ngIf="auth.loggedUserIn()">notifications</mat-icon>
+        </div>
+
+    <mat-card>
+<div class="row">
+    <div class="col lg-4 md-4" >
+     <table class="table table-hover table-borderless">
+       <tbody>
+         <tr>
+           <th>Course Name</th>
+           <td>{{ course.name.toUpperCase() }}</td>
+         </tr>
+         <tr>
+          <th>Type</th>
+          <td>{{ course.type }}</td>
+        </tr>
+        <tr>
+          <th>Level</th>
+          <td>{{ course.level }}</td>
+        </tr>
+        <tr>
+          <th>Maximum Strength</th>
+          <td>40</td>
+        </tr>
+       </tbody>
+     </table>
+   </div>
+
+   <div class="col lg-4 md-4" >
+     <table class="table table-hover table-borderless">
+       <tbody>
+        <tr>
+          <th>Professor</th>
+          <td>{{ course.professor }}</td>
+        </tr>
+         <tr>
+           <th>Duration</th>
+           <td>{{ course.duration }}</td>
+         </tr>
+         <tr>
+          <th>Start Date</th>
+          <td>{{ course.startdate }}</td>
+        </tr>
+        <tr>
+          <th>Current Strength</th>
+          <td>{{strength}}</td>
+        </tr>
+       </tbody>
+     </table>
+     <i class="fa-2x fas fa-edit editicon" (click)="editCourse(course)" *ngIf="auth.loggedProfIn()"></i>
+
+   </div>
+   </div>
+  </mat-card>
+
+  </div>
+

@@ -27,6 +27,10 @@ import { CourseDetailsComponent } from './course-details/course-details.componen
 import { CoursetakenDetailsComponent } from './coursetaken-details/coursetaken-details.component';
 import { CoursetakenRequestsComponent } from './coursetaken-requests/coursetaken-requests.component';
 import { CourseNotificationComponent } from './course-notification/course-notification.component';
+import { FooterComponent } from './footer/footer.component';
+import { EditCourseComponent } from './edit-course/edit-course.component';
+import { RequestedCoursesComponent } from './requested-courses/requested-courses.component';
+import { MessageNotificationComponent } from './message-notification/message-notification.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +51,11 @@ import { CourseNotificationComponent } from './course-notification/course-notifi
     CourseDetailsComponent,
     CoursetakenDetailsComponent,
     CoursetakenRequestsComponent,
-    CourseNotificationComponent
+    CourseNotificationComponent,
+    FooterComponent,
+    EditCourseComponent,
+    RequestedCoursesComponent,
+    MessageNotificationComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-<form   (ngSubmit)="loginUser()" #userlogin="ngForm" fxLayoutAlign="stretch" fxLayout="column">
+<!-- <form   (ngSubmit)="loginUser()" #userlogin="ngForm" fxLayoutAlign="stretch" fxLayout="column">
     <mat-form-field>
       <input matInput type="email" name="username"  placeholder="Email"  #email='ngModel' pattern="^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}$" [class.is-invalid]="email.invalid && email.touched" [(ngModel)]="user.username" required >      
     </mat-form-field>
@@ -8,4 +8,81 @@
       <input  matInput placeholder="Password" type="password" name="password" #pass='ngModel'  [(ngModel)]="user.password" minlength="8" required>
     </mat-form-field>
     <button mat-raised-button type="submit" color="primary"   [disabled]="userlogin.form.invalid" >Submit</button>   
+</form> -->
+
+
+
+
+
+
+<img src="assets/png/wave5.png" class="bottom-img">
+<div class="login-page">
+  <mat-card class="mat-elevation-z12">
+
+    <mat-card-title style="text-align:center;">Student</mat-card-title>
+    <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
+      <mat-tab label="Sign In">
+          <mat-card-content>
+              
+                
+              
+
+            <form   (ngSubmit)="loginUser()" #userlogin="ngForm" fxLayoutAlign="stretch" fxLayout="column">
+              <mat-form-field>
+                <input matInput type="email" name="username"  placeholder="Email"  #email='ngModel' pattern="^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}$" [class.is-invalid]="email.invalid && email.touched" [(ngModel)]="user.username" required >      
+                <mat-icon matSuffix>email</mat-icon>
+              </mat-form-field>
+          
+              <mat-form-field>
+                
+                <input  matInput placeholder="Password" type="password" name="password" #pass='ngModel'  [(ngModel)]="user.password" minlength="8" required>
+                <mat-icon matSuffix>lock</mat-icon>
+              </mat-form-field>
+              <button mat-raised-button type="submit" color="primary"   [disabled]="userlogin.form.invalid" >Submit</button>   
+          </form>
+        
+          </mat-card-content>
+      </mat-tab>
+      <mat-tab label="Sign Up">
+        <mat-card-content>
+        
+
+          <form (ngSubmit)="signupUser()" #signupuserform="ngForm" fxLayoutAlign="stretch" fxLayout="column">
+            <mat-form-field>
+                
+                <input matInput type="text" name="name1" [(ngModel)]="user1.name1" #name1='ngModel' placeholder="Name"   required>
+                <mat-icon matSuffix>person</mat-icon>
+              </mat-form-field>
+
+              <mat-form-field>
+          
+                  <input matInput type="email" name="email1" placeholder="Email"   #email1='ngModel' pattern="^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}$" [class.is-invalid]="email1.invalid && email1.touched" [(ngModel)]="user1.email1" required>
+                  <mat-icon matSuffix>email</mat-icon>
+                </mat-form-field>
+        
+      
+              
+          
+                  <mat-form-field>
+                  <input matInput type="password" name="password1" placeholder="Password"  #pass1='ngModel' class="form-control" #password1='ngModel' [(ngModel)]="user1.password1" minlength="8" required>
+                  <mat-icon matSuffix>lock</mat-icon>
+                </mat-form-field>
+              
+              <mat-form-field>
+
+                  <input matInput type="password" name="password2" placeholder="Re-Enter Password" #pass2='ngModel'  class="form-control" [(ngModel)]="user1.password2" #password2='ngModel' pattern="{{user1.password1}}" required >
+                  <mat-icon matSuffix>lock</mat-icon>
+                </mat-form-field>
+
+            <button type="submit"  value="Submit" class="btn btn-primary btn-block" [disabled]="signupuserform.form.invalid">Submit</button>
 </form>
+
+
+        </mat-card-content>
+      </mat-tab>
+    </mat-tab-group>
+   
+  </mat-card>
+</div>
+<img src="assets/png/wave6.png" class="footer-img">
+
